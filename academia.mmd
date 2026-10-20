@@ -1,52 +1,51 @@
-
 erDiagram
-    PLANO ||--o{ ALUNO : possui
-    ALUNO ||--o{ MATRICULA : realiza
-    TURMA ||--o{ MATRICULA : recebe
+    PLANO ||--o{ ALUNO : adquire
+    ALUNO ||--|{ MATRICULA : realiza
+    TURMA ||--|{ MATRICULA : recebe
     MODALIDADE ||--o{ TURMA : contem
-    INSTRUTOR ||--o{ TURMA : conduz
+    INSTRUTOR ||--o{ TURMA : atende
 
     PLANO {
         int id_plano PK
-        varchar tipo
-        decimal mensalidade
+        varchar tipo "NOT NULL"
+        decimal mensalidade "NOT NULL"
     }
 
     ALUNO {
         int id_aluno PK
-        varchar cpf UK
-        varchar nome
-        varchar telefone
-        date data_nasc
-        int id_plano FK
+        varchar cpf UK "NOT NULL"
+        varchar nome "NOT NULL"
+        varchar telefone UK "NOT NULL"
+        date data_nasc "NOT NULL"
+        int id_plano FK "NOT NULL"
     }
 
     MODALIDADE {
         int id_modalidade PK
-        varchar nome
-        varchar descricao
+        varchar nome "NOT NULL"
+        varchar descricao "NOT NULL"
     }
 
     INSTRUTOR {
         int id_instrutor PK
-        varchar cref UK
-        varchar nome
-        varchar fone
+        varchar cref UK "NOT NULL"
+        varchar nome "NOT NULL"
+        varchar fone UK "NOT NULL"
     }
 
     TURMA {
         int id_turma PK
-        int id_modalidade FK
-        int id_instrutor FK
-        varchar dia_semana
-        time horario
-        int numero_vagas
+        int id_modalidade FK "NOT NULL"
+        int id_instrutor FK "NOT NULL"
+        varchar dia_semana "NOT NULL"
+        time horario "NOT NULL"
+        int numero_vagas "NOT NULL"
     }
 
     MATRICULA {
-        int id_aluno PK, FK
-        int id_turma PK, FK
-        date data
-        varchar status
+        int id_matricula PK
+        int id_aluno FK "NOT NULL"
+        int id_turma FK "NOT NULL"
+        date data "NOT NULL"
+        varchar status "NOT NULL"
     }
-
