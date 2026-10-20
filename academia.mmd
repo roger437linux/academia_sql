@@ -1,0 +1,52 @@
+
+erDiagram
+    PLANO ||--o{ ALUNO : possui
+    ALUNO ||--o{ MATRICULA : realiza
+    TURMA ||--o{ MATRICULA : recebe
+    MODALIDADE ||--o{ TURMA : contem
+    INSTRUTOR ||--o{ TURMA : conduz
+
+    PLANO {
+        int id_plano PK
+        varchar tipo
+        decimal mensalidade
+    }
+
+    ALUNO {
+        int id_aluno PK
+        varchar cpf UK
+        varchar nome
+        varchar telefone
+        date data_nasc
+        int id_plano FK
+    }
+
+    MODALIDADE {
+        int id_modalidade PK
+        varchar nome
+        varchar descricao
+    }
+
+    INSTRUTOR {
+        int id_instrutor PK
+        varchar cref UK
+        varchar nome
+        varchar fone
+    }
+
+    TURMA {
+        int id_turma PK
+        int id_modalidade FK
+        int id_instrutor FK
+        varchar dia_semana
+        time horario
+        int numero_vagas
+    }
+
+    MATRICULA {
+        int id_aluno PK, FK
+        int id_turma PK, FK
+        date data
+        varchar status
+    }
+
