@@ -1,0 +1,27 @@
+CODE DOJO 
+
+A academia FitSenai ainda controla tudo em cadernos e planilhas soltas. O dono quer um banco de dados e vai explicar o que precisa 
+aos poucos, como acontece com um cliente de verdade.
+
+- Necessidade 1 - Alunos e Planos
+É necessário cadastrar alunos com CPF, nome, telefone e data de nascimento. Há tipos de planos (Mensal, Trimestral e Anual), cada um
+com sua mensalidade diferenciada. Cada aluno está em um único plano, e um plano tem vários alunos.
+
+- Necessidade 2 - Modalidades e Turmas
+Dentre as modalidades, está disponível treino funcional, musculação, natação e pilates, sendo necessário cadastrar o nome da modalidade 
+e uma breve descrição. Cada modalidade pode pertencer a várias turmas. Da turma é necessário cadastrar o dia da semana, o horário e o 
+número de vagas. Cada turma contém uma única modalidade.
+
+- Necessidade 3 - Instrutores
+Para os instrutores, deve ser cadastrado o CREF, nome e telefone. Cada turma é conduzida por um único instrutor, e um instrutor 
+pode conduzir várias turmas.
+
+- Necessidade 4 - Matrículas nas Turmas
+Muito importante: Os alunos se matriculam nas turmas. Um aluno pode se matricular em várias turmas e uma turma pode ter vários alunos. 
+Em cada matrícula deve ser guardada a data da matrícula e se a mesma está ativa ou cancelada.
+
+* Modelo Físico
+- Editar o script academia.sql para criar as seis tabelas (primeiro as "pai", depois as "filhas").
+- Utilize as constraints PK, FK, NOT NULL e UNIQUE onde fizer sentido.
+- Insira pelo menos 3 planos, 3 modalidades, 3 instrutores, 5 alunos, 5 turmas e 8 matrículas.
+- Fazer dois testes de integridade refencial (FK que não existe e CPF repetido) e tirem print do erro.
